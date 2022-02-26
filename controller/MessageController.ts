@@ -13,7 +13,7 @@ import MessageDao from "../daos/MessageDao";
  *     </li>
  *     <li>GET /api/users/:uid/recdMessages to retrieve all the messages received by this user
  *     </li>
- *     <li>POST /api/users/:sendUid/messages/:recUid/ to record that a user messages another user
+ *     <li>POST /api/users/:sendUid/messages/:recUid to record that a user messages another user
  *     </li>
  *     <li>DELETE /api/messages/:mid to record that a user
  *     deletes a message sent to another user</li>
