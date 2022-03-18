@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import CourseDao from "./CourseDao";
 import SectionDao from "./SectionDao";
-mongoose.connect('mongodb://localhost:27017/cs5500-test-123');
-
+//mongoose.connect('mongodb://localhost:27017/cs5500-test-123');
+const connectionString = 'mongodb+srv://pavithraapanch:mongo2022*@cluster0.5pmw7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+mongoose.connect(connectionString).then(_ => console.log("Success"));
 
 const sectionDao = SectionDao.getInstance();
 const courseDao = CourseDao.getInstance();
