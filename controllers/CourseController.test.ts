@@ -10,7 +10,7 @@ const courseDao = CourseDao.getInstance();
 
 
 describe('findAllCourses Controller', () => {
-    jest.mock('axios');
+    //jest.mock('axios');
 
     test('findAllCourses Controller', () => {
         const courseResponse = [
