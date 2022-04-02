@@ -29,17 +29,24 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const HOST = "cluster0.m8jeh.mongodb.net";
 const DB_NAME = "myFirstDatabase";
 const DB_QUERY = "retryWrites=true&w=majority";
+/*
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;// connect to the database
 mongoose.connect(connectionString);
+*/
+
+const connectionString = 'mongodb+srv://pavithraapanch:mongo2022*@cluster0.5pmw7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+mongoose.connect(connectionString).then(_ => console.log("Success"));
+
 
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: process.env.CORS_ORIGIN
+    origin: "http://localhost:3001"
 }));
 
 let sess = {
-    secret: process.env.EXPRESS_SESSION_SECRET,
+    //secret: process.env.EXPRESS_SESSION_SECRET,
+    secret: "super secret",
     saveUninitialized: true,
     resave: true,
     cookie: {
