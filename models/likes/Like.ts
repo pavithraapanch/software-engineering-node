@@ -1,5 +1,5 @@
 /**
- * @file Declares Like data type representing relationship between
+ * @file Declares Dislike data type representing relationship between
  * users and tuits, as in user likes a tuit
  */
 import Tuit from "../tuits/Tuit";
