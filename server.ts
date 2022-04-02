@@ -30,11 +30,13 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const HOST = "cluster0.m8jeh.mongodb.net";
 const DB_NAME = "myFirstDatabase";
 const DB_QUERY = "retryWrites=true&w=majority";
-/*
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;// connect to the database
+/*
 mongoose.connect(connectionString);
-*/
+ */
+/*
 const connectionString = 'mongodb+srv://pavithraapanch:mongo2022*@cluster0.5pmw7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+*/
 mongoose.connect(connectionString).then(_ => console.log("Success"));
 
 
