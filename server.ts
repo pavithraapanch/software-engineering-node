@@ -15,6 +15,7 @@ import CourseController from "./controllers/CourseController";
 import UserController from "./controllers/UserController";
 import TuitController from "./controllers/TuitController";
 import LikeController from "./controllers/LikeController";
+import DislikeController from "./controllers/DislikeController";
 import SessionController from "./controllers/SessionController";
 import AuthenticationController from "./controllers/AuthenticationController";
 import mongoose from "mongoose";
@@ -33,7 +34,6 @@ const DB_QUERY = "retryWrites=true&w=majority";
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;// connect to the database
 mongoose.connect(connectionString);
 */
-
 const connectionString = 'mongodb+srv://pavithraapanch:mongo2022*@cluster0.5pmw7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 mongoose.connect(connectionString).then(_ => console.log("Success"));
 
@@ -41,12 +41,13 @@ mongoose.connect(connectionString).then(_ => console.log("Success"));
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:3001"
+    //origin: "http://localhost:3001"
+    origin: process.env.CORS_ORIGIN
 }));
 
 let sess = {
-    //secret: process.env.EXPRESS_SESSION_SECRET,
-    secret: "super secret",
+    secret: process.env.EXPRESS_SESSION_SECRET,
+    //secret: "super secret",
     saveUninitialized: true,
     resave: true,
     cookie: {
@@ -73,6 +74,7 @@ const courseController = new CourseController(app);
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
 const likesController = LikeController.getInstance(app);
+const dislikesController = DislikeController.getInstance(app);
 SessionController(app);
 AuthenticationController(app);
 GroupController(app);
