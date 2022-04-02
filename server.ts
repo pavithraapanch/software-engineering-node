@@ -37,8 +37,7 @@ mongoose.connect(connectionString);
 /*
 const connectionString = 'mongodb+srv://pavithraapanch:mongo2022*@cluster0.5pmw7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 */
-mongoose.connect(connectionString).then(_ => console.log("Success"));
-
+mongoose.connect(connectionString);
 
 const app = express();
 app.use(cors({
